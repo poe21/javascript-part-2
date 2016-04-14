@@ -15,8 +15,28 @@ new email object, then push that email object to the emails of the person.
 Finally test your code by creating a person and giving them a home and work email. 
 */
 
+function checkType(type) {
+    if (type === "home" || type === "work" || type === "other") {
+        return type;
+    }
+    else {
+        return "other";
+    }
+}
+
 function Person(firstName, lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.emails = []
+    this.email = []
 }
+
+Person.prototype = {
+    addEmail: function(address, type) {
+        this.email.push(address + ", " + checkType(type));
+    }
+};
+
+var newPerson = new Person("Annie", "Durand");
+newPerson.addEmail("annie@mail.com", "home");
+newPerson.addEmail("annie@workmail.com", "work");
+console.log(newPerson);
