@@ -133,7 +133,7 @@ var subtracter = operationMaker("subtract");
 var subtraction = subtracter(10, 5);
 
 var diviser = operationMaker("div");
-var division = diviser(10, 5); 
+var division = diviser(10, 5);
 
 console.log(addSum);
 console.log(multSum);

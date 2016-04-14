@@ -55,4 +55,4 @@ var warrior2 = new Warrior("Bobette");
 
 console.log(warrior1);
 console.log(warrior2);
-console.log(warrior1.faceoff(warrior2));
+console.log(warrior1.faceoff(warrior2)); 
