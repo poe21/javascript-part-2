@@ -19,3 +19,38 @@ Output the map to the console in the following way:
 For each tile, output the height of the tile as an "icon" for that tile
 Go thru all the map again, randomly burning and freezing some tiles. Then, re-output the map in the same way again
 */
+
+function typeRandomiser() {
+    var value = Math.random();
+    if (value < 0.33) {
+        return "burning";
+    } else if (value > 0.33 && value < 0.67) {
+        return "normal";
+    }
+    else {
+        return "frozen";
+    }
+}
+
+function conditionRandomiser() {
+    var value = Math.random();
+    if (value < 0.33) {
+        return "rocks";
+    } else if (value > 0.33 && value < 0.67) {
+        return "water";
+    }
+    else {
+        return "grass";
+    }
+}
+
+function Tile(x, y) {
+    this.x = x;
+    this.y = y;
+    this.height = (Math.random() * (3 - 1)) + 1;
+    this.type = typeRandomiser();
+    this.condition = conditionRandomiser();
+}
+
+var firstTile = new Tile(1,2);
+console.log(firstTile);
