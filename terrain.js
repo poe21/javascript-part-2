@@ -37,7 +37,7 @@ function conditionRandomiser() {
 function Tile(x, y) {
     this.x = x;
     this.y = y;
-    this.height = (Math.random() * (3 - 1)) + 1;
+    this.height = Math.floor(Math.random() * 3 + 1);
     this.type = typeRandomiser();
     this.condition = conditionRandomiser();
 }
@@ -74,8 +74,45 @@ Tile.prototype = {
 array (array inside array).
 Output the map to the console in the following way:
 For each tile, output the height of the tile as an "icon" for that tile
-Go thru all the map again, randomly burning and freezing some tiles. Then, re-output the map in the same way again
 */
 
-var firstTile = new Tile(1,2);
+/* function mapMaker() {
+    var mapX = [];
+    var mapY = [];
+    for (var i = 0; i < 21; i++) {
+        mapX.push(new Tile(1,1).height);
+        for (var i = 0; i < 21; i++) {
+           mapY.push(new Tile(1,1).height); 
+        }
+    }
+    return mapX;
+}
+
+function mapMaker2() {
+    var mapX = [];
+    var mapY = [];
+    for (var i = 0; i < 21; i++) {
+        mapX.push(new Tile(1,1).height);
+    }
+    return mapX;
+}
+*/
+
+function mapMaker() {
+    var map = [];
+    for (var i = 0; i < 21; i++) {
+        var row = []
+        for (var j = 0; j < 21; j++) {
+            row.push(new Tile(i,j).height);
+        }
+        map.push(row)
+    }
+    return map;
+}
+
+var firstTile = new Tile(1,1);
 console.log(firstTile);
+
+console.log(mapMaker());
+
+// Go thru all the map again, randomly burning and freezing some tiles. Then, re-output the map in the same way again
